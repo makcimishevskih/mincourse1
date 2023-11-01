@@ -17,7 +17,7 @@
       <textarea v-model='textarea' id="value" rows="3"></textarea>
     </div>
 
-    <button :disabled='textarea.length < 3' class="btn primary">Добавить</button>
+    <button :disabled='buttonAccess' class="btn primary">Добавить</button>
   </form>
 </template>
 
@@ -47,6 +47,11 @@ export default {
         this.error = 'Choose type of tag'
       }
     },
+  },
+  computed: {
+    buttonAccess () {
+      return this.textarea.length < 3
+    }
   }
 }
 </script>
